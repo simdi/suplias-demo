@@ -57,16 +57,16 @@
               </div>
               <div class="col-12">
                 <h6 class="disable-color">PERSON</h6>
-                <p>Marvelous Ottah</p>
-                <p>070488238845</p>
+                <p>{{ buyer?.name }}</p>
+                <p>{{ buyer?.phone }}</p>
               </div>
               <div class="col-12">
                 <h6 class="disable-color">BILLING ADDRESS</h6>
-                <p>14, Ransom Kuti, Aguda, Surulere - <b>Surulere, Lagos</b></p>
+                <p>{{ buyer?.address }}, {{ buyer?.location?.name }} - <b>{{ buyer?.location?.lga }}, {{ buyer?.location?.state }}</b></p>
               </div>
               <div class="col-12">
                 <h6 class="disable-color">WALLET BALANCE</h6>
-                <p>&#x20A6;4,200.00</p>
+                <p *ngIf="buyer?.ledgers && buyer.ledgers.length > 0">&#x20A6;{{ buyer?.ledgers[0]?.balance }}</p>
               </div>
               <div class="col-12">
                 <h6 class="disable-color">RATING</h6>
@@ -127,19 +127,20 @@
                         <th>Items</th>
                         <th>Total</th>
                       </tr>
-                      <tr>
-                        <td><i class="fa fa-circle text-success"></i></td>
-                        <td>#0590344</td>
+                      <tr *ngFor="let ord of orderItem">
+                        <td>
+                          <ng-container *ngIf="ord.product.status === 'active'; else elseTemplate">
+                            <i class="fa fa-circle text-success"></i>
+                          </ng-container>
+                          <ng-template #elseTemplate>
+                            <i class="fa fa-circle text-success"></i>
+                          </ng-template>
+
+                        </td>
+                        <td>{{ ord?.product?.sku_id }}</td>
                         <td>Aug 03, 2019</td>
-                        <td>50</td>
-                        <td>&#x20A6;4,200.00</td>
-                      </tr>
-                      <tr>
-                        <td><i class="fa fa-circle text-danger"></i></td>
-                        <td>#0592334</td>
-                        <td>Aug 01, 2019</td>
-                        <td>10</td>
-                        <td>&#x20A6;1,200.00</td>
+                        <td>{{ ord.quantity }}</td>
+                        <td>&#x20A6;{{ ord.amount }}</td>
                       </tr>
                     </table>
                   </div>
