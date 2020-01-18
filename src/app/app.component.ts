@@ -35,7 +35,6 @@ export class AppComponent {
   getOrders() {
     this.dataService.getOrders().subscribe((res: any) => {
       if (res.code === 200) {
-        console.log('Roder', res);
         this.order = res.data;
       }
     });
@@ -44,7 +43,6 @@ export class AppComponent {
   getOrderItems() {
     this.dataService.getOrderItems().subscribe((res: any) => {
       if (res.code === 200) {
-        console.log('Order item', res.data);
         this.orderItem = res.data;
       }
     });
