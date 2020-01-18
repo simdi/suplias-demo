@@ -1,0 +1,195 @@
+$primary-color: #3D6C98;
+
+#sidebar-container {
+    background-color: #ffffff;
+    left: 0;
+    min-height: 100%;
+    padding-top: 20px;
+    position: absolute;
+    top: 0;
+    border-right: .5px solid #cccccc;
+    width: 250px;
+    z-index: 9;
+
+    .user-panel {
+        background: #cccccc;
+        height: 60px;
+        width: 100%;
+        padding: 10px;
+        margin: 0px 30px;
+
+        .img-box {
+          border-radius: 50%;
+          background-color: red;
+          text-align: center;
+          width: 40px;
+          height: 40px;
+        }
+
+        .info {
+            line-height: 1;
+            text-align: center;
+
+            a {
+                color: dark;
+                text-decoration: none;
+                padding-right: 5px;
+                margin-top: 3px;
+                font-size: 11px;
+            }
+
+            p {
+                font-weight: 600;
+                margin-bottom: 9px;
+            }
+        }
+    }
+
+    .sidebar-menu {
+        width: 100%;
+        list-style: none;
+        margin: 15px;
+        padding: 0;
+
+        .treeview-menu {
+            display: none;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+                margin-left: 0;
+
+                a {
+                    color: $primary-color;
+                    display: block;
+                    font-size: 14px;
+                    padding: 5px 5px 5px 30px;
+
+                    .ion, .fas, .far {
+                        width: 20px;
+                    }
+
+                    .fa-angle-left, .fa-angle-down {
+                        width: auto;
+                    }
+
+                    &:hover {
+                        background-color: rgba(0,0,0,0.1);
+                    }
+                }
+            }
+        }
+
+        .divider {
+          padding: 10px 5px;
+          margin-left:10px;
+        }
+
+        .treeview {
+            .label, .badge {
+                margin-top: 3px;
+                margin-right: 5px;
+            }
+
+            a {
+                color:  #000000 !important;
+                display: block;
+                padding: 10px 5px;
+
+                .fas, .ion, .far, .fa {
+                  width: 20px;
+                }
+
+                &:hover {
+                  color: red !important;
+                  text-decoration: none;
+                }
+            }
+
+            &.header {
+                padding: 5px 25px 5px 15px;
+                font-size: 12px;
+                background-color: rgba(0,0,0,0.2);
+                overflow: hidden;
+                text-overflow: clip;
+            }
+
+            &.active {
+                .treeview-menu {
+                    display: block;
+                }
+                a {
+                    .fa-angle-left {
+                        -webkit-transform: rotate(-90deg);
+                        -ms-transform: rotate(-90deg);
+                        -o-transform: rotate(-90deg);
+                        transform: rotate(-90deg);
+                    }
+                }
+            }
+        }
+
+        li {
+          position: relative;
+          margin: 0;
+          padding: 0 10px;
+        }
+
+        &:hover {
+            overflow: visible;
+        }
+    }
+
+    @media (max-width: md) {
+        margin-left: 0;
+    }
+
+    @media (max-width: m-xs) {
+        padding-top: 100px;
+        -webkit-transform: translate(-250px, 0);
+        -ms-transform: translate(-250px, 0);
+        -o-transform: translate(-250px, 0);
+        transform: translate(-250px, 0);
+    }
+}
+
+#main-content {
+  background-color: transparent;
+  margin-left: 250px;
+  padding: 20px;
+  z-index: 8;
+  .box {
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: .5px solid #cccccc;
+    padding: 20px;
+    .box-body {
+      .rating {
+        .checked {
+          color: orange;
+        }
+      }
+    }
+  }
+
+  .profile-container {
+    .image {
+      padding: 10px;
+      img {
+        height: 100px;
+        width: 100px;
+      }
+    }
+  }
+}
+
+table {
+  width: 100%;
+  tr {
+    border-bottom: 1px solid #cccccc;
+  }
+  tr:last-child {
+    border-bottom: none;
+  }
+}
