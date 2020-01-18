@@ -1,35 +1,44 @@
-$primary-color: #3D6C98;
+$primary-color: #0000d8;
+$white: #ffffff;
+$grey: #cccccc;
+$disable-color: #afafabf7;
 
 #sidebar-container {
-    background-color: #ffffff;
+    background-color: $white;
     left: 0;
     min-height: 100%;
     padding-top: 20px;
     position: absolute;
     top: 0;
-    border-right: .5px solid #cccccc;
+    border-right: .5px solid $grey;
     width: 250px;
     z-index: 9;
 
     .user-panel {
-        background: #cccccc;
+        background: $grey;
         height: 60px;
         width: 100%;
         padding: 10px;
         margin: 0px 30px;
 
         .img-box {
+          display: inline-block;
           border-radius: 50%;
-          background-color: red;
+          color: $white;
+          background-color: $primary-color;
           text-align: center;
           width: 40px;
           height: 40px;
+          p {
+            margin-bottom: 0;
+            margin-top: .5rem;
+          }
         }
 
         .info {
             line-height: 1;
             text-align: center;
-
+            margin-left: 10px;
             a {
                 color: dark;
                 text-decoration: none;
@@ -51,60 +60,29 @@ $primary-color: #3D6C98;
         margin: 15px;
         padding: 0;
 
-        .treeview-menu {
-            display: none;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-
-            li {
-                margin-left: 0;
-
-                a {
-                    color: $primary-color;
-                    display: block;
-                    font-size: 14px;
-                    padding: 5px 5px 5px 30px;
-
-                    .ion, .fas, .far {
-                        width: 20px;
-                    }
-
-                    .fa-angle-left, .fa-angle-down {
-                        width: auto;
-                    }
-
-                    &:hover {
-                        background-color: rgba(0,0,0,0.1);
-                    }
-                }
-            }
-        }
-
         .divider {
           padding: 10px 5px;
           margin-left:10px;
         }
 
         .treeview {
-            .label, .badge {
-                margin-top: 3px;
-                margin-right: 5px;
+            .badge {
+              margin-left: 5px;
             }
 
             a {
-                color:  #000000 !important;
-                display: block;
-                padding: 10px 5px;
+              color:  #000000 !important;
+              display: block;
+              padding: 10px 5px;
 
-                .fas, .ion, .far, .fa {
-                  width: 20px;
-                }
+              .fas, .ion, .far, .fa {
+                width: 20px;
+              }
 
-                &:hover {
-                  color: red !important;
-                  text-decoration: none;
-                }
+              &:hover {
+                color: $primary-color !important;
+                text-decoration: none;
+              }
             }
 
             &.header {
@@ -114,26 +92,16 @@ $primary-color: #3D6C98;
                 overflow: hidden;
                 text-overflow: clip;
             }
-
-            &.active {
-                .treeview-menu {
-                    display: block;
-                }
-                a {
-                    .fa-angle-left {
-                        -webkit-transform: rotate(-90deg);
-                        -ms-transform: rotate(-90deg);
-                        -o-transform: rotate(-90deg);
-                        transform: rotate(-90deg);
-                    }
-                }
-            }
         }
 
         li {
           position: relative;
           margin: 0;
           padding: 0 10px;
+        }
+
+        li.active {
+          color: $primary-color;
         }
 
         &:hover {
@@ -154,40 +122,76 @@ $primary-color: #3D6C98;
     }
 }
 
-#main-content {
-  background-color: transparent;
+#main-body {
   margin-left: 250px;
-  padding: 20px;
-  z-index: 8;
-  .box {
-    background-color: #ffffff;
-    border-radius: 5px;
-    border: .5px solid #cccccc;
-    padding: 20px;
-    .box-body {
-      .rating {
-        .checked {
-          color: orange;
+  #header {
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    padding: 30px;
+
+    .header-left {
+      h4 {
+        color: $disable-color;
+      }
+    }
+    .header-right {
+      display: flex;
+      justify-content: end;
+      height: 50px;
+      width: 100px;
+
+      .profile-dropdown {
+        img {
+          height:40px;
+          width: 40px;
         }
       }
     }
   }
 
-  .profile-container {
-    .image {
-      padding: 10px;
-      img {
-        height: 100px;
-        width: 100px;
+  #main-content {
+    background-color: transparent;
+    padding: 20px;
+    z-index: 8;
+    .box {
+      background-color: $white;
+      border-radius: 5px;
+      border: .5px solid $grey;
+      padding: 20px;
+      .box-body {
+        .rating {
+          .checked {
+            color: orange;
+          }
+        }
+      }
+    }
+
+    .profile-container {
+      .image {
+        padding: 10px;
+        img {
+          height: 100px;
+          width: 100px;
+        }
       }
     }
   }
 }
 
+.btn-primary {
+  background-color: $primary-color;
+  border-color: $primary-color;
+}
+.disable-color {
+  color: $disable-color;
+}
+
 table {
   width: 100%;
   tr {
-    border-bottom: 1px solid #cccccc;
+    border-bottom: 1px solid $grey;
   }
   tr:last-child {
     border-bottom: none;
